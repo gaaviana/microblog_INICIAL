@@ -1,7 +1,9 @@
 <?php
 
+use Microblog\Auth\ControleDeAcesso;
 use Microblog\Helpers\Utils;
 use Microblog\Helpers\Validacoes;
+use Microblog\Services\UsuarioServico;
 
 require_once "vendor/autoload.php";
 
@@ -29,7 +31,30 @@ if (isset($_POST['entrar'])) {
     }
 
     /* Processo de busca do usuário pelo e-mail e login na área administrativa */
+    try {
+        $usuarioServico = new UsuarioServico;
 
+        $usuario = $usuarioServico->buscarPorEmail($email);
+
+        if(!$usuario){
+            header("location:login.php?dados_incorretos");
+            exit;
+        }
+
+        if ($usuario && password_verify($senha, $usuario['senha'])) {
+            ControleDeAcesso::login($usuario['id'], $usuario['nome'], $usuario['tipo']);
+            header("location:admin/index.php");
+            exit;
+        } else {
+            header("location:login.php?dados_incorretos");
+            exit;
+        }
+
+    } catch (Throwable $erro) {
+        Utils::registrarLog($erro);
+        header("location:login.php?erro");
+        exit;
+    }
     
     
 }

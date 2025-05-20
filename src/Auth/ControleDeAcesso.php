@@ -19,7 +19,7 @@ final class ControleDeAcesso {
     }
 
     /* bloqueia paginas adm caso o usuario não esteja logado */
-    public function exigirLogin() : void {
+    public static function exigirLogin() : void {
 
         /* inicia sessao (se necessário) */
         self::iniciarSessao();

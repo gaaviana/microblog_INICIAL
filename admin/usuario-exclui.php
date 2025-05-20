@@ -6,6 +6,8 @@ use Microblog\Helpers\Utils;
 use Microblog\Services\UsuarioServico;
 
 ControleDeAcesso::exigirLogin();
+ControleDeAcesso::exigirAdmin();
+
 
 $usuarioServico = new UsuarioServico();
 

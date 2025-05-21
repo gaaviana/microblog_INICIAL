@@ -9,3 +9,18 @@ Arquivo: C:\xampp\htdocs\microblog_INICIAL\src\Database\ConexaoBD.php
 Linha: 24
 Mensagem: SQLSTATE[HY000] [1049] Unknown database 'microblog_2025'
 
+[2025-05-21 09:02:42]
+Arquivo: C:\xampp\htdocs\microblog_INICIAL\src\Services\UsuarioServico.php
+Linha: 80
+Mensagem: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'viana@gmail.com' for key 'email'
+
+[2025-05-21 09:02:46]
+Arquivo: C:\xampp\htdocs\microblog_INICIAL\src\Services\UsuarioServico.php
+Linha: 80
+Mensagem: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'viana@gmail.com' for key 'email'
+
+[2025-05-21 09:02:57]
+Arquivo: C:\xampp\htdocs\microblog_INICIAL\src\Services\UsuarioServico.php
+Linha: 80
+Mensagem: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'viana@gmail.com' for key 'email'
+

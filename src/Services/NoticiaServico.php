@@ -23,12 +23,14 @@ class NoticiaServico
     public function listarTodos(TipoUsuario $tipoUsuario, int $usuarioId): array
     {
 
+        //se usuario for adm fazer esse select
         if ($tipoUsuario === TipoUsuario::ADMIN) {
             $sql = "SELECT noticias.id, noticias.titulo, 
                     noticias.data, usuarios.nome AS autor, noticias.destaque
                     FROM noticias INNER JOIN usuarios
                     ON noticias.usuario_id = usuarios.id
                     ORDER BY data DESC";
+        // se não faça esse
         } else {
             $sql = "SELECT id, titulo, data, destaque
                     FROM noticias WHERE usuario_id = :usuario_id
